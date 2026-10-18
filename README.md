@@ -2,7 +2,10 @@
 
 **42 vues de littoraux dans une mosaïque interactive.**
 
-Vues des côtes : Amériques, de l’Europe, de l’Afrique, de l’Asie, de l’Australie/Océanie, et les régions polaires.  
+![Aperçu de la mosaïque des côtes](cotes-mini.png)
+
+Vues des côtes : Amériques, de l’Europe, de l’Afrique, de l’Asie, de l’Australie/Océanie, et les régions polaires.
+
 Les cartes sont recadrées en carrés et présentent une échelle physique comparable au centre de chaque vue.
 
 ## Fonctionnalités
