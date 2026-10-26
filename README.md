@@ -20,6 +20,10 @@ Les cartes sont recadrées en carrés et présentent une échelle physique compa
 
 Les vues proviennent de **Google Maps**. Les crédits de Google et des fournisseurs de données sont conservés sur chaque carte.
 
-## Version live. 
+## Version live  
 
 https://ereyes.github.io/coastlines/ 
+
+## Collage  
+https://ereyes.github.io/coastlines/collage.jpg  
+
