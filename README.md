@@ -27,3 +27,8 @@ https://ereyes.github.io/coastlines/
 ## Collage  
 [https://ereyes.github.io/coastlines/collage001.jpeg](https://raw.githubusercontent.com/ereyes/coastlines/refs/heads/main/collage001.jpeg)  
 
+
+## Texte génératif  
+https://ereyes.github.io/coastlines/water-voices    
+
+
