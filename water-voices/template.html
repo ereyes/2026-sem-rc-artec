@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#edf0e9">
+  <meta name="description" content="A multilingual vocal water score: falling, flowing, bubbling, and mouth & water. Animated words and vocal experiments in English, French, Spanish, Italian, and German.">
+  <title>Water voices</title>
+  <style>/* __STYLES__ */</style>
+</head>
+<body>
+  <header class="masthead">
+    <div class="toolbar">
+      <div class="languages" role="group" aria-label="Languages to show and pronounce"></div>
+      <div class="tools">
+        <button class="text-button" id="inventory-button" type="button" aria-haspopup="dialog">Inventory <span aria-hidden="true">↗</span></button>
+        <button class="motion-button" id="motion-button" type="button" aria-label="Pause animation" aria-pressed="false" title="Pause animation">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14M16 5v14"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+  <main class="score" id="score" aria-label="Four movements of water"></main>
+  <footer class="page-footer"><span>Words become water. Water becomes voice.</span><span class="footer-note" id="global-status" role="status" aria-live="polite">Choose a circle to hear a movement.</span></footer>
+  <dialog id="inventory-dialog" aria-labelledby="inventory-title">
+    <div class="dialog-top"><h2 id="inventory-title">Water, before the score.</h2><button class="close-button" id="close-dialog" type="button" aria-label="Close inventory">×</button></div>
+    <p class="dialog-intro">Four families of movement. Words in five languages, shared vocal experiments, and the places or objects that make the sounds. Some events sit between families.</p>
+    <p class="inventory-note">Sound spellings are experiments to pronounce, not fixed translations. The synthesiser interprets them as speech; each voice will sound different.</p>
+    <div id="inventory-content"></div>
+    <section class="voice-note" aria-labelledby="voices-title"><h3 id="voices-title">The voices in this browser</h3><p>Each word requests its own language. Vocal experiments borrow the selected languages in turn. Available voices depend on your browser and device.</p><div id="voice-summary"></div></section>
+  </dialog>
+  <noscript><p class="noscript">Enable JavaScript to animate the words and use the vocal synthesiser.</p></noscript>
+  <script id="water-data" type="application/json">/* __DATA__ */</script>
+  <script>/* __SPEECH__ */</script>
+  <script>/* __APP__ */</script>
+</body>
+</html>

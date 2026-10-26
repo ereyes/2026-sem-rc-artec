@@ -1,0 +1,81 @@
+{
+  "languages": [
+    {"code":"en","label":"EN","name":"English"},
+    {"code":"fr","label":"FR","name":"Français"},
+    {"code":"es","label":"ES","name":"Español"},
+    {"code":"it","label":"IT","name":"Italiano"},
+    {"code":"de","label":"DE","name":"Deutsch"}
+  ],
+  "categories": [
+    {
+      "id":"falling", "title":"Tomber", "label":"Falling", "number":"01",
+      "sources":"rain · drops · splashes", "description":"Water separates, falls, meets a surface.",
+      "words":[
+        {"text":"drop","lang":"en"},{"text":"goutte","lang":"fr"},{"text":"gota","lang":"es"},{"text":"goccia","lang":"it"},{"text":"Tropfen","lang":"de"},
+        {"text":"rain","lang":"en"},{"text":"pluie","lang":"fr"},{"text":"lluvia","lang":"es"},{"text":"pioggia","lang":"it"},{"text":"Regen","lang":"de"}
+      ],
+      "sounds":[{"text":"tik… tik","say":"tik, tik"},{"text":"plic","say":"plic"},{"text":"ploc","say":"ploc"},{"text":"pit-pat","say":"pit pat"},{"text":"plouf","say":"plouf"}],
+      "events":[
+        {"event":"Isolated drop","sound":"tip… tik… plik… ploc…","source":"Leaking tap, pipette, stalactite; drops into a bowl"},
+        {"event":"Repeated dripping","sound":"tip… tip… ploc-ploc…","source":"Robinet mal fermé, gutter, leaking pipe"},
+        {"event":"Fine rain","sound":"piti-piti… pit-pat…","source":"Leaves, umbrella, window, ground"},
+        {"event":"Heavy rain","sound":"trrrrr… pshhhhh… patapatapata…","source":"Roof, pavement, puddles, metal container"},
+        {"event":"Small splash","sound":"plic… splitch… splatch…","source":"Hand in a basin, foot in a puddle, stone entering water"},
+        {"event":"Large splash / plunge","sound":"plouf… sploosh…","source":"Body entering a pool, bucket emptied into a basin"}
+      ]
+    },
+    {
+      "id":"flowing", "title":"Couler", "label":"Flowing", "number":"02",
+      "sources":"taps · streams · waves", "description":"Water stretches, travels, washes back.",
+      "words":[
+        {"text":"flow","lang":"en"},{"text":"couler","lang":"fr"},{"text":"fluir","lang":"es"},{"text":"scorrere","lang":"it"},{"text":"fließen","lang":"de"},
+        {"text":"wave","lang":"en"},{"text":"vague","lang":"fr"},{"text":"ola","lang":"es"},{"text":"onda","lang":"it"},{"text":"Welle","lang":"de"}
+      ],
+      "sounds":[{"text":"shhhhh","say":"shhhh"},{"text":"ssss","say":"ssss"},{"text":"fshhhh","say":"fshhhh"},{"text":"sh-la-sh","say":"sh la sh"},{"text":"shlouuu","say":"shlou"}],
+      "events":[
+        {"event":"Trickling","sound":"lilili… ririli… lou-lou…","source":"Small spring, narrow stream, gutter, tilted vessel"},
+        {"event":"Continuous flow","sound":"shhhhh… chhhhh… fssss…","source":"Running tap / robinet d’eau, hose, fountain, river"},
+        {"event":"Pouring water","sound":"shlouuu… glou… shhhh…","source":"Jug, carafe, watering can, bucket"},
+        {"event":"Water sloshing","sound":"chlouk-chlouk… shlou-shla…","source":"Partly filled bottle, bucket, bathtub, boat"},
+        {"event":"Waves lapping","sound":"lap… slap… flop…","source":"Lake edge, riverbank, basin rocked gently"},
+        {"event":"Wave breaking","sound":"whouuush… fshhhhh…","source":"Sea, shoreline, wave pool"},
+        {"event":"Water receding","sound":"ssss… shhhh… srrr…","source":"Beach, pebbles, sloping surface"},
+        {"event":"Waterfall / rushing water","sound":"shhhhhhh… rrrrshhhh…","source":"Waterfall, cascade, spillway, large fountain"},
+        {"event":"Spraying","sound":"psssss… tshhhh… psh-psh…","source":"Showerhead, spray bottle, hose nozzle"}
+      ]
+    },
+    {
+      "id":"bubbling", "title":"Bouillonner", "label":"Bubbling", "number":"03",
+      "sources":"bubbles · boiling · drains", "description":"Water and air gather, turn, escape.",
+      "words":[
+        {"text":"bubble","lang":"en"},{"text":"bulle","lang":"fr"},{"text":"burbuja","lang":"es"},{"text":"bolla","lang":"it"},{"text":"Blase","lang":"de"},
+        {"text":"whirlpool","lang":"en"},{"text":"tourbillon","lang":"fr"},{"text":"remolino","lang":"es"},{"text":"vortice","lang":"it"},{"text":"Wirbel","lang":"de"}
+      ],
+      "sounds":[{"text":"glou-glou","say":"glou glou"},{"text":"bloub","say":"bloub"},{"text":"bloup","say":"bloup"},{"text":"bouloulou","say":"bouloulou"},{"text":"glo-lou","say":"glo lou"}],
+      "events":[
+        {"event":"Sputtering flow","sound":"psh-pt-psh… pf-pf-fshhh…","source":"Tap or hose releasing water and air"},
+        {"event":"Bottle emptying","sound":"glou-glou… glouk-glouk…","source":"Narrow-necked bottle tipped into another container"},
+        {"event":"Air bubbling through water","sound":"bloub-bloub… bloup… bouloulou…","source":"Aquarium, straw in a glass, air tube in a basin"},
+        {"event":"Boiling / simmering","sound":"blup… blup… bloubloublou…","source":"Saucepan, kettle, heated vessel"},
+        {"event":"Draining / suction","sound":"glou-grou… glrrr… schloup…","source":"Sink, bathtub, drain, funnel"}
+      ]
+    },
+    {
+      "id":"mouth", "title":"Boire", "label":"Mouth & water", "number":"04",
+      "sources":"lips · tongue · throat", "description":"Water meets a mouth. A sound becomes a voice.",
+      "words":[
+        {"text":"sip","lang":"en"},{"text":"gorgée","lang":"fr"},{"text":"sorbo","lang":"es"},{"text":"sorso","lang":"it"},{"text":"Schluck","lang":"de"},
+        {"text":"drink","lang":"en"},{"text":"boire","lang":"fr"},{"text":"beber","lang":"es"},{"text":"bere","lang":"it"},{"text":"trinken","lang":"de"}
+      ],
+      "sounds":[{"text":"slurp","say":"slurp"},{"text":"gloup","say":"gloup"},{"text":"glo-glo","say":"glo glo"},{"text":"grou-glou","say":"grou glou"},{"text":"ahhh","say":"ahhh"}],
+      "events":[
+        {"event":"Sipping / sucking","sound":"slurp… sss-loup…","source":"Mouth, cup, spoon, straw"},
+        {"event":"Swallowing / gulping","sound":"gloup… gulp… glouk…","source":"Mouth and throat while drinking"},
+        {"event":"Gargling","sound":"grrgl… grl-grl…","source":"Mouth and throat interacting with water"}
+      ]
+    }
+  ],
+  "additionalEvents":[
+    {"event":"Squeezing water out","sound":"squich… squish… plich…","source":"Wet sponge, cloth, soaked fabric","categories":["falling","flowing"]}
+  ]
+}
