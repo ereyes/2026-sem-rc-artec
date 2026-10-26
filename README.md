@@ -25,5 +25,5 @@ Les vues proviennent de **Google Maps**. Les crédits de Google et des fournisse
 https://ereyes.github.io/coastlines/ 
 
 ## Collage  
-https://ereyes.github.io/coastlines/collage.jpg  
+https://ereyes.github.io/coastlines/collage001.jpeg  
 
