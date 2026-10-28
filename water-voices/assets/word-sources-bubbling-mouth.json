@@ -1,0 +1,112 @@
+[
+  {
+    "categoryId": "bubbling",
+    "lang": "en",
+    "text": "bubble",
+    "filename": "En-us-bubble.ogg",
+    "url": "https://commons.wikimedia.org/wiki/File:En-us-bubble.ogg",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/8/85/En-us-bubble.ogg",
+    "author": "Dvortygirl",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/"
+  },
+  {
+    "categoryId": "bubbling",
+    "lang": "fr",
+    "text": "bulle",
+    "filename": "LL-Q150 (fra)-LoquaxFR-bulle.wav",
+    "url": "https://commons.wikimedia.org/wiki/File:LL-Q150_(fra)-LoquaxFR-bulle.wav",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a1/LL-Q150_%28fra%29-LoquaxFR-bulle.wav",
+    "author": "LoquaxFR (speaker and recorder)",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+  },
+  {
+    "categoryId": "bubbling",
+    "lang": "es",
+    "text": "burbuja",
+    "filename": "LL-Q1321 (spa)-Marreromarco-burbuja.wav",
+    "url": "https://commons.wikimedia.org/wiki/File:LL-Q1321_(spa)-Marreromarco-burbuja.wav",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/a/af/LL-Q1321_%28spa%29-Marreromarco-burbuja.wav",
+    "author": "Marreromarco (speaker and recorder)",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+  },
+  {
+    "categoryId": "bubbling",
+    "lang": "it",
+    "text": "bollire",
+    "filename": "LL-Q652 (ita)-XANA000-bollire.wav",
+    "url": "https://commons.wikimedia.org/wiki/File:LL-Q652_(ita)-XANA000-bollire.wav",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/0/03/LL-Q652_%28ita%29-XANA000-bollire.wav",
+    "author": "XANA000 (speaker and recorder)",
+    "license": "CC0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+  },
+  {
+    "categoryId": "bubbling",
+    "lang": "de",
+    "text": "Blase",
+    "filename": "De-Blase.ogg",
+    "url": "https://commons.wikimedia.org/wiki/File:De-Blase.ogg",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d1/De-Blase.ogg",
+    "author": "Jeuwre",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+  },
+  {
+    "categoryId": "mouth",
+    "lang": "en",
+    "text": "sip",
+    "filename": "LL-Q1860 (eng)-Vealhurl-sip.wav",
+    "url": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Vealhurl-sip.wav",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/9/90/LL-Q1860_%28eng%29-Vealhurl-sip.wav",
+    "author": "Vealhurl",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+  },
+  {
+    "categoryId": "mouth",
+    "lang": "fr",
+    "text": "gorgée",
+    "filename": "LL-Q150 (fra)-VictorDtmtc-gorgée.wav",
+    "url": "https://commons.wikimedia.org/wiki/File:LL-Q150_(fra)-VictorDtmtc-gorg%C3%A9e.wav",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d9/LL-Q150_%28fra%29-VictorDtmtc-gorg%C3%A9e.wav",
+    "author": "VictorDtmtc",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+  },
+  {
+    "categoryId": "mouth",
+    "lang": "es",
+    "text": "sorbo",
+    "filename": "LL-Q1321 (spa)-Emanuelps27-sorbo.wav",
+    "url": "https://commons.wikimedia.org/wiki/File:LL-Q1321_(spa)-Emanuelps27-sorbo.wav",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/3/38/LL-Q1321_%28spa%29-Emanuelps27-sorbo.wav",
+    "author": "Emanuelps27",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  {
+    "categoryId": "mouth",
+    "lang": "it",
+    "text": "bere",
+    "filename": "It-bere.ogg",
+    "url": "https://commons.wikimedia.org/wiki/File:It-bere.ogg",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0e/It-bere.ogg",
+    "author": "Marta Carbone / Association Shtooka",
+    "license": "CC BY 3.0 US",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0/us/"
+  },
+  {
+    "categoryId": "mouth",
+    "lang": "de",
+    "text": "Schluck",
+    "filename": "De-Schluck.ogg",
+    "url": "https://commons.wikimedia.org/wiki/File:De-Schluck.ogg",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/b/bd/De-Schluck.ogg",
+    "author": "Jeuwre",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+  }
+]
