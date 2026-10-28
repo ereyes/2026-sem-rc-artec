@@ -11,8 +11,9 @@
 <body>
   <header class="masthead">
     <div class="toolbar">
-      <div class="languages" role="group" aria-label="Languages to show and pronounce"></div>
+      <div class="languages" role="group" aria-label="Languages to show and hear"></div>
       <div class="tools">
+        <button class="text-button stop-all" id="stop-all" type="button" aria-label="Stop all sound layers" title="Stop all sound layers · Escape" disabled><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="5" y="5" width="10" height="10" rx="1"/></svg><span>Stop all</span></button>
         <button class="text-button" id="inventory-button" type="button" aria-haspopup="dialog">Inventory <span aria-hidden="true">↗</span></button>
         <button class="motion-button" id="motion-button" type="button" aria-label="Pause animation" aria-pressed="false" title="Pause animation">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14M16 5v14"/></svg>
@@ -21,17 +22,24 @@
     </div>
   </header>
   <main class="score" id="score" aria-label="Four movements of water"></main>
-  <footer class="page-footer"><span>Words become water. Water becomes voice.</span><span class="footer-note" id="global-status" role="status" aria-live="polite">Choose a circle to hear a movement.</span></footer>
+  <footer class="page-footer"><span>Voiced water · add layers, let them meet.</span><span class="footer-note" id="global-status" role="status" aria-live="polite">Choose one or more circles to listen.</span></footer>
   <dialog id="inventory-dialog" aria-labelledby="inventory-title">
-    <div class="dialog-top"><h2 id="inventory-title">Water, before the score.</h2><button class="close-button" id="close-dialog" type="button" aria-label="Close inventory">×</button></div>
-    <p class="dialog-intro">Four families of movement. Words in five languages, shared vocal experiments, and the places or objects that make the sounds. Some events sit between families.</p>
-    <p class="inventory-note">Sound spellings are experiments to pronounce, not fixed translations. The synthesiser interprets them as speech; each voice will sound different.</p>
+    <div class="dialog-top"><h2 id="inventory-title">Water as source of performative text</h2><button class="close-button" id="close-dialog" type="button" aria-label="Close inventory">×</button></div>
+    <p class="dialog-intro">Four families of movement. Words in five languages, shared vocal experiments, and the places or objects that make the sounds. Some words exist in different families.</p>
+    <p class="inventory-note">All twenty sound spellings have voice takes: eight recorded examples and twelve AI-generated takes in one stock voice. Each circle adds an independent, repeating voice layer; use its level slider to shape the mix. Language buttons choose the visible words and the spoken languages.</p>
+    <div class="inventory-voice-action"><button class="studio-open" id="record-vocals-button" type="button">Preview or replace voices</button><span id="vocal-readiness"></span></div>
     <div id="inventory-content"></div>
-    <section class="voice-note" aria-labelledby="voices-title"><h3 id="voices-title">The voices in this browser</h3><p>Each word requests its own language. Vocal experiments borrow the selected languages in turn. Available voices depend on your browser and device.</p><div id="voice-summary"></div></section>
+    <section class="voice-note" aria-labelledby="voices-title"><h3 id="voices-title">The voices</h3><p>Recorded and generated voices articulate the sound words. The twelve generated takes use Kokoro-82M’s af_heart stock voice and are marked as generated in the voice studio. All twenty sounds are ready to play; recording a replacement is optional. Clips have been trimmed, faded, converted to mono, and adjusted in level; playback speed varies slightly. Prepared recordings retain their listed source licenses.</p><ul id="audio-credits"></ul></section>
   </dialog>
-  <noscript><p class="noscript">Enable JavaScript to animate the words and use the vocal synthesiser.</p></noscript>
+  <dialog id="voice-dialog" aria-labelledby="voice-title">
+    <div class="dialog-top"><h2 id="voice-title">Give the water a voice.</h2><button class="close-button" id="voice-close" type="button" aria-label="Close voice studio">×</button></div>
+    <div id="voice-studio-body"></div>
+  </dialog>
+  <noscript><p class="noscript">Enable JavaScript to animate the words and play the voice layers.</p></noscript>
   <script id="water-data" type="application/json">/* __DATA__ */</script>
-  <script>/* __SPEECH__ */</script>
+  <script id="audio-data" type="application/json">/* __AUDIO_DATA__ */</script>
+  <script>/* __AUDIO__ */</script>
+  <script>/* __STUDIO__ */</script>
   <script>/* __APP__ */</script>
 </body>
 </html>

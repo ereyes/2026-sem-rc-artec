@@ -1,15 +1,19 @@
 (function () {
   'use strict';
+  const pristineHTML = '<!doctype html>\n' + document.documentElement.outerHTML;
   const data = JSON.parse(document.getElementById('water-data').textContent);
+  const audioBank = JSON.parse(document.getElementById('audio-data').textContent);
+  const clipById = new Map(audioBank.clips.map((clip) => [clip.id, clip]));
   const score = document.getElementById('score');
   const globalStatus = document.getElementById('global-status');
   const dialog = document.getElementById('inventory-dialog');
   const motionButton = document.getElementById('motion-button');
+  const stopAllButton = document.getElementById('stop-all');
   const activeLanguages = new Set(data.languages.map((language) => language.code));
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const panelMap = new Map();
   let motionPaused = reducedMotion.matches;
-  let playingCategory = null;
+  let activeCategories = new Set();
   let lastInventoryTrigger = null;
 
   const icons = {
@@ -44,10 +48,24 @@
     button.setAttribute('aria-label', `Listen to ${category.label.toLowerCase()}`);
     button.setAttribute('aria-pressed', 'false');
     button.setAttribute('aria-keyshortcuts', 'Escape');
-    button.title = `Listen to ${category.label.toLowerCase()} · click again to stop`;
+    button.title = `Add ${category.label.toLowerCase()} to the mix · click again to stop this layer`;
     button.innerHTML = icons.sound;
     const listenLabel = element('span', 'listen-label', 'Listen');
-    foot.append(utterance, button, listenLabel);
+    const level = element('label', 'layer-level');
+    const slider = element('input');
+    slider.type = 'range'; slider.min = '0'; slider.max = '100'; slider.step = '1';
+    slider.value = String({ falling:65, flowing:50, bubbling:60, mouth:65 }[category.id]);
+    slider.setAttribute('aria-label', `${category.label} level`);
+    slider.title = `${category.label} level`;
+    level.append(element('span', '', 'Level'), slider);
+    slider.addEventListener('input', () => audio.setLevel(category.id, Number(slider.value)/100));
+    const controls = element('div', 'layer-controls');
+    const record = element('button', 'record-voice', 'Voices');
+    record.type = 'button';
+    record.setAttribute('aria-label', `Preview or replace voices for ${category.label.toLowerCase()}`);
+    record.addEventListener('click', () => studio.open(category.id, record));
+    controls.append(level, record);
+    foot.append(controls, utterance, button, listenLabel);
     panel.append(head, stage, foot);
     score.append(panel);
     const tokens = [];
@@ -56,7 +74,7 @@
     initialWords.forEach((word, index) => tokens.push(makeToken(word, false, index, category, stage)));
     category.sounds.forEach((sound, index) => tokens.push(makeToken(sound, true, index + 5, category, stage)));
     panelMap.set(category.id, { panel, stage, button, utterance, listenLabel, tokens, category });
-    button.addEventListener('click', () => speech.play(category.id, playlist(category)));
+    button.addEventListener('click', () => audio.toggle(category.id));
   });
 
   function makeToken(item, isSound, index, category, stage) {
@@ -66,7 +84,7 @@
     const body = element('span', 'token-body');
     const text = element('span', 'token-text', item.text);
     if (item.lang) text.lang = item.lang;
-    body.append(text, element('span', 'token-lang', isSound ? '∿' : item.lang.toUpperCase()));
+    body.append(text);
     token.append(body);
     const column = index % 5;
     const x = 17 + column * 16;
@@ -81,7 +99,7 @@
     token.dataset.column = String(column);
     token.dataset.index = String(index);
     body.addEventListener('animationiteration', () => {
-      if (isSound || playingCategory === category.id) return;
+      if (isSound || token.classList.contains('is-speaking')) return;
       const choices = category.words.filter((word) => word.lang === item.lang);
       const currentIndex = choices.findIndex((word) => word.id === token.dataset.itemId);
       updateToken(token, choices[(currentIndex + 1) % choices.length]);
@@ -119,61 +137,63 @@
   } else window.addEventListener('resize', resizeStages);
   resizeStages();
 
-  function playlist(category) {
-    const selected = data.languages.filter((language) => activeLanguages.has(language.code));
-    const words = category.words.filter((word) => activeLanguages.has(word.lang));
-    const items = [];
-    for (let index = 0; index < Math.max(words.length, category.sounds.length); index += 1) {
-      if (words[index]) items.push({ ...words[index], rate: .83 });
-      if (category.sounds[index]) items.push({
-        ...category.sounds[index], lang: selected[index % selected.length].code,
-        rate: .76, pitch: category.id === 'bubbling' ? .85 : 1
-      });
-    }
-    return items;
+  function clearSpeaking(categoryId) {
+    const view = panelMap.get(categoryId);
+    if (view) view.tokens.forEach((token) => token.classList.remove('is-speaking'));
   }
-
-  function clearSpeaking() {
-    score.querySelectorAll('.is-speaking').forEach((token) => token.classList.remove('is-speaking'));
-  }
-  const speech = new window.WaterSpeech({
-    onState({ categoryId, playing }) {
-      playingCategory = playing ? categoryId : null;
+  const audio = new window.WaterAudio({
+    bank: audioBank,
+    onState({ activeCategoryIds, loadingCategoryIds }) {
+      activeCategories = new Set(activeCategoryIds);
+      const loading = new Set(loadingCategoryIds);
+      stopAllButton.disabled = activeCategories.size === 0;
       panelMap.forEach((view, id) => {
-        const active = playing && id === categoryId;
+        const active = activeCategories.has(id);
         view.panel.classList.toggle('is-playing', active);
         view.button.setAttribute('aria-pressed', String(active));
         view.button.setAttribute('aria-label', `${active ? 'Stop' : 'Listen to'} ${view.category.label.toLowerCase()}`);
-        view.listenLabel.textContent = active ? 'Stop' : 'Listen';
-        if (!active) view.utterance.textContent = view.category.description;
+        view.listenLabel.textContent = loading.has(id) ? 'Loading' : active ? 'Stop' : 'Listen';
+        if (!active) {
+          clearSpeaking(id);
+          view.utterance.textContent = view.category.description;
+        }
       });
-      if (!playing) clearSpeaking();
     },
-    onWord(event) {
-      clearSpeaking();
-      if (!event) return;
-      const { categoryId, item, index, total } = event;
+    onEvent(event) {
+      const { categoryId, soundIndex, clipId, ended, kind, wordId, lang, text } = event;
+      clearSpeaking(categoryId);
       const view = panelMap.get(categoryId);
-      let token = view.tokens.find((candidate) => candidate.dataset.itemId === item.id);
-      if (!token) {
-        token = view.tokens.find((candidate) => candidate.dataset.language === item.lang);
-        if (token) updateToken(token, item);
+      if (!view) return;
+      if (ended) {
+        view.utterance.textContent = activeCategories.has(categoryId) ? 'Voiced sounds + words · repeating layer' : view.category.description;
+        return;
+      }
+      let token;
+      if (kind === 'word') {
+        token = view.tokens.find((candidate) => candidate.dataset.language === lang);
+        const word = view.category.words.find((item) => item.id === wordId);
+        if (token && word) updateToken(token, word);
+      } else {
+        const sound = view.category.sounds[soundIndex % view.category.sounds.length];
+        token = view.tokens.find((candidate) => candidate.dataset.itemId === sound.id);
       }
       if (token) token.classList.add('is-speaking');
-      view.utterance.replaceChildren(element('span', 'utterance-lang', item.lang.toUpperCase()), document.createTextNode(`${item.text} · ${index + 1}/${total}`));
+      const clip = clipById.get(clipId);
+      view.utterance.textContent = kind === 'word' ? `${lang.toUpperCase()} · ${text}` : `${clip && clip.provenance==='generated' ? 'Generated voice' : 'Voice'} · ${view.category.sounds[soundIndex].text}`;
     },
     onStatus(message) { globalStatus.textContent = message; }
   });
-  if (!speech.supported) panelMap.forEach(({ button, listenLabel }) => {
+  stopAllButton.addEventListener('click', () => audio.stopAll());
+  if (!audio.supported) panelMap.forEach(({ button, listenLabel }) => {
     button.disabled = true;
-    listenLabel.textContent = 'Voice unavailable';
+    listenLabel.textContent = 'Audio unavailable';
   });
 
   data.languages.forEach((language) => {
     const button = element('button', '', language.label);
     button.type = 'button';
     button.lang = language.code;
-    button.title = `${language.name} · show and pronounce`;
+    button.title = `${language.name} · show and hear words`;
     button.setAttribute('aria-label', language.name);
     button.setAttribute('aria-pressed', 'true');
     button.addEventListener('click', () => {
@@ -184,12 +204,12 @@
         }
         activeLanguages.delete(language.code);
       } else activeLanguages.add(language.code);
-      speech.stop();
+      audio.setLanguages([...activeLanguages]);
       button.setAttribute('aria-pressed', String(activeLanguages.has(language.code)));
       panelMap.forEach(({ tokens }) => tokens.forEach((token) => {
         if (token.dataset.language) token.hidden = !activeLanguages.has(token.dataset.language);
       }));
-      if (speech.supported) globalStatus.textContent = `Languages: ${data.languages.filter((item) => activeLanguages.has(item.code)).map((item) => item.label).join(' · ')}. Choose a circle to listen.`;
+      globalStatus.textContent = `${activeCategories.size} ${activeCategories.size === 1 ? 'layer' : 'layers'} · words and voices: ${data.languages.filter((item) => activeLanguages.has(item.code)).map((item) => item.label).join(' · ')}.`;
     });
     document.querySelector('.languages').append(button);
   });
@@ -252,21 +272,44 @@
       content.append(section);
     });
   }
-  function updateVoiceSummary() {
-    const summary = document.getElementById('voice-summary');
-    summary.className = 'voice-summary';
-    summary.replaceChildren();
-    speech.getVoiceSummary().forEach((voice) => {
-      const text = `${voice.lang.toUpperCase()} · ${voice.available ? voice.voiceName : 'no matching voice listed'}`;
-      summary.append(element('span', `voice-chip${voice.available ? '' : ' unavailable'}`, text));
+  function renderAudioCredits(takes = []) {
+    const credits = document.getElementById('audio-credits');
+    credits.replaceChildren();
+    audioBank.sources.forEach((source) => {
+      const row = element('li');
+      const link = element(source.url ? 'a' : 'span', '', source.title);
+      if (source.url) {
+        link.href = source.url;
+        link.target = '_blank'; link.rel = 'noopener noreferrer';
+      }
+      row.append(link, document.createTextNode(` — ${source.author} · `));
+      if (source.licenseUrl) {
+        const license = element('a', '', source.license);
+        license.href = source.licenseUrl; license.target = '_blank'; license.rel = 'noopener noreferrer';
+        row.append(license);
+      } else row.append(document.createTextNode(source.license));
+      credits.append(row);
     });
+    if (takes.length) credits.append(element('li', '', `${takes.length} additional voice ${takes.length===1 ? 'take' : 'takes'} recorded or imported in this document.`));
   }
   renderInventory();
-  updateVoiceSummary();
-  if (speech.supported) window.speechSynthesis.addEventListener('voiceschanged', updateVoiceSummary);
+  renderAudioCredits();
+  const studio = new window.VoiceStudio({
+    audio, bank:audioBank, categories:data.categories,
+    dialog:document.getElementById('voice-dialog'), pristineHTML,
+    onChange(takes) {
+      const ready = new Set(audioBank.clips.filter(clip=>clip.kind==='vocal').map(clip=>`${clip.categoryId}:${clip.soundIndex}`));
+      takes.forEach(take=>{ ready.add(`${take.categoryId}:${take.soundIndex}`); clipById.set(take.id,take); });
+      document.getElementById('vocal-readiness').textContent = `${ready.size} of ${data.categories.reduce((sum,category)=>sum+category.sounds.length,0)} vocal sounds have a voice take`;
+      renderAudioCredits(takes);
+    }
+  });
+  document.getElementById('record-vocals-button').addEventListener('click', () => {
+    dialog.close();
+    studio.open(undefined, document.getElementById('inventory-button'));
+  });
   document.getElementById('inventory-button').addEventListener('click', (event) => {
     lastInventoryTrigger = event.currentTarget;
-    updateVoiceSummary();
     dialog.showModal();
   });
   document.getElementById('close-dialog').addEventListener('click', () => dialog.close());
@@ -275,7 +318,6 @@
     const rect = dialog.getBoundingClientRect();
     if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) dialog.close();
   } });
-  document.addEventListener('keydown', (event) => { if (event.key === 'Escape') speech.stop(); });
-  document.addEventListener('visibilitychange', () => { if (document.hidden) speech.stop(); });
-  window.addEventListener('pagehide', () => speech.stop());
+  document.addEventListener('keydown', (event) => { if (event.key === 'Escape') audio.stopAll(); });
+  window.addEventListener('pagehide', () => audio.stopAll());
 }());
