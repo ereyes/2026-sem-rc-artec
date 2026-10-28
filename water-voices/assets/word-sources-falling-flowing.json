@@ -1,0 +1,116 @@
+[
+  {
+    "categoryId": "falling",
+    "lang": "en",
+    "text": "drop",
+    "filename": "word-falling-en.ogg",
+    "url": "https://commons.wikimedia.org/wiki/File:En-us-drop.ogg",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0e/En-us-drop.ogg",
+    "author": "Dvortygirl",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/"
+  },
+  {
+    "categoryId": "falling",
+    "lang": "fr",
+    "text": "goutte",
+    "filename": "word-falling-fr.wav",
+    "url": "https://commons.wikimedia.org/wiki/File:LL-Q150_(fra)-Lepticed7-goutte.wav",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/5/53/LL-Q150_%28fra%29-Lepticed7-goutte.wav",
+    "author": "Speaker: Lepticed7\nRecorder: Lepticed7",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  {
+    "categoryId": "falling",
+    "lang": "es",
+    "text": "gota",
+    "filename": "word-falling-es.wav",
+    "url": "https://commons.wikimedia.org/wiki/File:LL-Q1321_(spa)-AdrianAbdulBaha-gota.wav",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/1/18/LL-Q1321_%28spa%29-AdrianAbdulBaha-gota.wav",
+    "author": "Speaker: AdrianAbdulBaha\nRecorder: AdrianAbdulBaha",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  {
+    "categoryId": "falling",
+    "lang": "it",
+    "text": "goccia",
+    "filename": "word-falling-it.wav",
+    "url": "https://commons.wikimedia.org/wiki/File:LL-Q652_(ita)-LangPao-goccia.wav",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/6/63/LL-Q652_%28ita%29-LangPao-goccia.wav",
+    "author": "Speaker: LangPao\nRecorder: LangPao",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  {
+    "categoryId": "falling",
+    "lang": "de",
+    "text": "Tropfen",
+    "filename": "word-falling-de.ogg",
+    "url": "https://commons.wikimedia.org/wiki/File:De-Tropfen.ogg",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ed/De-Tropfen.ogg",
+    "author": "Jeuwre",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  {
+    "categoryId": "flowing",
+    "lang": "en",
+    "text": "flow",
+    "filename": "word-flowing-en.ogg",
+    "url": "https://commons.wikimedia.org/wiki/File:En-us-flow.ogg",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f9/En-us-flow.ogg",
+    "author": "Dvortygirl",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/"
+  },
+  {
+    "categoryId": "flowing",
+    "lang": "fr",
+    "text": "couler",
+    "filename": "word-flowing-fr.ogg",
+    "url": "https://commons.wikimedia.org/wiki/File:Fr-couler.ogg",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Fr-couler.ogg",
+    "author": "Vion Nicolas",
+    "license": "CC BY 2.0 fr",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0/fr/deed.en"
+  },
+  {
+    "categoryId": "flowing",
+    "lang": "es",
+    "text": "fluir",
+    "filename": "word-flowing-es.wav",
+    "url": "https://commons.wikimedia.org/wiki/File:LL-Q1321_(spa)-Rodelar-fluir.wav",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/d/dd/LL-Q1321_%28spa%29-Rodelar-fluir.wav",
+    "author": "Speaker: Rodelar\nRecorder: Rodelar",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  {
+    "categoryId": "flowing",
+    "lang": "it",
+    "text": "goccia",
+    "filename": "word-falling-it.wav",
+    "url": "https://commons.wikimedia.org/wiki/File:LL-Q652_(ita)-LangPao-goccia.wav",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/6/63/LL-Q652_%28ita%29-LangPao-goccia.wav",
+    "author": "Speaker: LangPao\nRecorder: LangPao",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "reuseFrom": "word-falling-it.pcm.wav",
+    "note": "Shared drop word used in Falling and Flowing"
+  },
+  {
+    "categoryId": "flowing",
+    "lang": "de",
+    "text": "Tropfen",
+    "filename": "word-falling-de.ogg",
+    "url": "https://commons.wikimedia.org/wiki/File:De-Tropfen.ogg",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ed/De-Tropfen.ogg",
+    "author": "Jeuwre",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "reuseFrom": "word-falling-de.pcm.wav",
+    "note": "Shared drop word used in Falling and Flowing"
+  }
+]
