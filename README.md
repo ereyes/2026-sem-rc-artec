@@ -12,7 +12,7 @@ Une mosaïque de 42 vues cartographiques de littoraux.
 
 **[Voir le collage — aperçu disponible](https://ereyes.github.io/2026-sem-rc-artec/collage/cotes-mini.png)**
 
-Fichiers du projet : [`collage/`](./collage/).
+Fichiers du projet : [`collage/`](https://github.com/ereyes/2026-sem-rc-artec/tree/main/collage).
 
 ### 2. Écriture performative — Water voices
 
@@ -20,7 +20,7 @@ Une écriture performative interactive autour des sons et des mouvements de l’
 
 **[Ouvrir Water voices](https://ereyes.github.io/2026-sem-rc-artec/water-voices/)**
 
-Fichiers du projet : [`water-voices/`](./water-voices/).
+Fichiers du projet : [`water-voices/`](https://github.com/ereyes/2026-sem-rc-artec/tree/main/water-voices).
 
 ### 3. Carte heuristique
 
@@ -32,4 +32,4 @@ Pour une première consultation, ouvrir l’**image med**. Choisir l’**image h
 | Image hires | [`2026-carte-heuristique-hires.jpg`](https://ereyes.github.io/2026-sem-rc-artec/carte-heuristique/2026-carte-heuristique-hires.jpg) | Haute résolution pour examiner les détails (environ 4,5 Mo). |
 | PDF | [`reyes-carte-heuristique-2026.pdf`](https://ereyes.github.io/2026-sem-rc-artec/carte-heuristique/reyes-carte-heuristique-2026.pdf) | Le fichier présent dans le dépôt est actuellement vide et doit être remplacé avant consultation. |
 
-Fichiers du projet : [`carte-heuristique/`](./carte-heuristique/).
+Fichiers du projet : [`carte-heuristique/`](https://github.com/ereyes/2026-sem-rc-artec/tree/main/carte-heuristique).
