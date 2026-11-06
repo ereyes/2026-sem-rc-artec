@@ -20,15 +20,14 @@ Les cartes sont recadrées en carrés et présentent une échelle physique compa
 
 Les vues proviennent de **Google Maps**. Les crédits de Google et des fournisseurs de données sont conservés sur chaque carte.
 
-## Version live  
+## Version live
 
-https://ereyes.github.io/coastlines/ 
+[Ouvrir la mosaïque interactive](https://ereyes.github.io/2026-sem-rc-artec/collage/)
 
-## Collage  
-[https://ereyes.github.io/coastlines/collage001.jpeg](https://raw.githubusercontent.com/ereyes/coastlines/refs/heads/main/collage001.jpeg)  
+## Collage
 
+[Voir le collage exporté (JPEG)](https://ereyes.github.io/2026-sem-rc-artec/collage/collage001.jpeg)
 
-## Texte génératif  
-https://ereyes.github.io/coastlines/water-voices    
+## Écriture performative — Water voices
 
-
+[Ouvrir Water voices](https://ereyes.github.io/2026-sem-rc-artec/water-voices/)

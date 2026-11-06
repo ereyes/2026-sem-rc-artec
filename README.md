@@ -8,9 +8,11 @@ Les liens ci-dessous ouvrent les résultats dans le navigateur via [GitHub Pages
 
 ### 1. Collage — Coastlines, Atlas des côtes
 
-Une mosaïque de 42 vues cartographiques de littoraux.
+Une mosaïque interactive de 42 vues cartographiques de littoraux.
 
-**[Voir le collage — aperçu disponible](https://ereyes.github.io/2026-sem-rc-artec/collage/cotes-mini.png)**
+**[Ouvrir le collage interactif](https://ereyes.github.io/2026-sem-rc-artec/collage/)**
+
+Version image : [voir le collage exporté (JPEG)](https://ereyes.github.io/2026-sem-rc-artec/collage/collage001.jpeg).
 
 Fichiers du projet : [`collage/`](https://github.com/ereyes/2026-sem-rc-artec/tree/main/collage).
 
@@ -30,6 +32,6 @@ Pour une première consultation, ouvrir l’**image med**. Choisir l’**image h
 | --- | --- | --- |
 | Image med | [`2026-carte-heuristique-med.jpeg`](https://ereyes.github.io/2026-sem-rc-artec/carte-heuristique/2026-carte-heuristique-med.jpeg) | Vue d’ensemble ; fichier plus léger (environ 0,9 Mo). |
 | Image hires | [`2026-carte-heuristique-hires.jpg`](https://ereyes.github.io/2026-sem-rc-artec/carte-heuristique/2026-carte-heuristique-hires.jpg) | Haute résolution pour examiner les détails (environ 4,5 Mo). |
-| PDF | [`reyes-carte-heuristique-2026.pdf`](https://ereyes.github.io/2026-sem-rc-artec/carte-heuristique/reyes-carte-heuristique-2026.pdf) | Le fichier présent dans le dépôt est actuellement vide et doit être remplacé avant consultation. |
+| PDF | [`reyes-carte-heuristique-2026.pdf`](https://ereyes.github.io/2026-sem-rc-artec/carte-heuristique/reyes-carte-heuristique-2026.pdf) | Version PDF à ouvrir dans le navigateur ou à télécharger. |
 
 Fichiers du projet : [`carte-heuristique/`](https://github.com/ereyes/2026-sem-rc-artec/tree/main/carte-heuristique).
